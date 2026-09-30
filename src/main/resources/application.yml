@@ -1,0 +1,26 @@
+quarkus:
+  application:
+    name: transaction-ms
+
+  http:
+    port: 8081
+
+  jackson:
+    write-dates-as-timestamps: false
+
+cosmos:
+  endpoint: ${COSMOS_ENDPOINT}
+  key: ${COSMOS_KEY}
+  database: Bank
+  containers:
+    transfers: Transfers
+    purchases: Purchases
+    cards: Cards
+    accounts: Accounts
+    exchangeRates: ExchangeRates
+
+mp:
+  jwt:
+    verify:
+      publickey: ${JWT_PUBLIC_KEY}
+      issuer: banking-auth
