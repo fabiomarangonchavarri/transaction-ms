@@ -48,7 +48,7 @@ public class PurchaseRepository {
 
     public Uni<List<PurchaseResponseDto>> getPurchasesByCardId(String cardId) {
 
-        String query = String.format("SELECT c.id, c.amount, c.currency, c.timestamp FROM c WHERE c.cardId = '%s' ORDER BY c.timestamp DESC", cardId);
+        String query = String.format("SELECT c.id, c.amount, c.currency, c.description, c.timestamp FROM c WHERE c.cardId = '%s' ORDER BY c.timestamp DESC", cardId);
 
         return Uni.createFrom()
                 .completionStage(
